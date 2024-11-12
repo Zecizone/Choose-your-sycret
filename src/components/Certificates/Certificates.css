@@ -1,0 +1,65 @@
+.sycret-block {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    padding: 20px;
+}
+
+.sycret-block__title {
+    font-size: 64px;
+    font-weight: bold;
+    line-height: 1.2;
+    color: #f34f40;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.sycret-block__error {
+    color: #FF4D4D;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.sycret-block__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.sycret-block__item {
+    padding: 30px;
+    color: #333;
+    background-color: #ffffff;
+    border-radius: 15px;
+    border: 1px solid #E0E0E0;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.sycret-block__item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.sycret-block__product-name {
+    font-size: 22px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #2C3E50;
+}
+
+.sycret-block__product-sum {
+    margin-bottom: 15px;
+    font-size: 20px;
+    color: #7D7D7D;
+}
+
+.sycret-block__loading-message {
+    font-size: 18px;
+    color: #888;
+    text-align: center;
+    margin-top: 20px;
+}

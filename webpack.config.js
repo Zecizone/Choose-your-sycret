@@ -20,16 +20,19 @@ module.exports = {
         },
       },
       {
-        test: /\.js$/, // Обработка файлов .js
-        exclude: /node_modules/,
-        use: {
-            loader: 'babel-loader', // Загрузчик для Babel
-        },
-    },
-    {
-        test: /\.css$/, // Обработка файлов .css
-        use: ['style-loader', 'css-loader'], // Загрузчики для CSS
-    },
+        test: /\.css$/,
+        exclude: /\.module\.css$/,
+        use: ['style-loader', 'css-loader'],
+      },
+      {
+        test: /\.module\.css$/,
+        use: ['style-loader', {
+          loader: 'css-loader',
+          options: {
+            modules: true,
+          },
+        }],
+      },
     ],
   },
   optimization: {
@@ -49,9 +52,9 @@ module.exports = {
   devServer: {
     static: {
       directory: path.join(__dirname, 'dist'),
-    }, // Обновленное свойство
+    },
     compress: true,
     port: 3000,
-    open: true, // Открывать браузер автоматически
+    open: true,
   },
-};
+}

@@ -1,0 +1,21 @@
+.payment-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; 
+    background-color: #f9f9f9; 
+  }
+  
+  .payment-title {
+    font-size: 3rem;
+    margin-bottom: 20px; 
+    text-align: center; 
+  }
+  
+  .payment-message {
+    font-size: 1.5rem; 
+    text-align: center; 
+    color: #555; 
+  }
+  
