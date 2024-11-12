@@ -1,6 +1,5 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer'); // Исправлено на деструктуризацию
 
 module.exports = {
   mode: 'development',
@@ -20,6 +19,17 @@ module.exports = {
           loader: 'babel-loader',
         },
       },
+      {
+        test: /\.js$/, // Обработка файлов .js
+        exclude: /node_modules/,
+        use: {
+            loader: 'babel-loader', // Загрузчик для Babel
+        },
+    },
+    {
+        test: /\.css$/, // Обработка файлов .css
+        use: ['style-loader', 'css-loader'], // Загрузчики для CSS
+    },
     ],
   },
   optimization: {
@@ -33,15 +43,15 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: './src/index.html',
+      filename: 'index.html'
     }),
-    new BundleAnalyzerPlugin(), // Перенесено за пределы объекта HtmlWebpackPlugin
   ],
   devServer: {
     static: {
       directory: path.join(__dirname, 'dist'),
     }, // Обновленное свойство
     compress: true,
-    port: 9000,
+    port: 3000,
     open: true, // Открывать браузер автоматически
   },
 };

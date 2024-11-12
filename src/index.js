@@ -1,9 +1,12 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
+import Cips from './Cips';
+
+
 const App = () => {
   return (
     <div>
-      <h1>Привет, мир!</h1>
+      <Cips />
     </div>
   );
 };
