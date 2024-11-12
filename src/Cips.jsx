@@ -11,7 +11,7 @@ const Cips = () => {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          ApiKey: "011ba11bdcad4fa396660c2ec447ef14",
+          ApiKey: //КТО ЗНАЕТ ТОТ ЗНАЕТ,
           MethodName: "OSGetGoodList"
         }),
 mode: 'no-cors'
