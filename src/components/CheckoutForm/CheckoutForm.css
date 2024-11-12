@@ -2,8 +2,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh; /* Минимальная высота контейнера для центрирования */
-    margin: 0; /* Убираем отступы */
+    min-height: 100vh; 
+    margin: 0; 
   }
   
   .checkout-form {
