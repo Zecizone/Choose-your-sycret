@@ -376,7 +376,7 @@ eval("module.exports = __webpack_require__.p + \"7f4a1b15f28c46c6c6d2.jpg\";\n\n
 /******/ 	
 /******/ 	/* webpack/runtime/publicPath */
 /******/ 	(() => {
-/******/ 		__webpack_require__.p = "/";
+/******/ 		__webpack_require__.p = "/Choose-your-sycret/";
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/jsonp chunk loading */
