@@ -20,15 +20,15 @@ const useCheckoutForm = (certificateId) => {
     }
 
     const params = new URLSearchParams({
-      ApiKey: process.env.REACT_APP_API_KEY,
-      MethodName: process.env.REACT_APP_METHOD_NAME_SALE,
+      ApiKey: "011ba11bdcad4fa396660c2ec447ef14",
+      MethodName: "OSSale",
       Name: name,
       Phone: phone,
       Email: email,
       CertificateData: JSON.stringify({ certificateId })
     });
 
-    const url = `${process.env.REACT_APP_API_URL}?${params}`;
+    const url = `https://sycret.ru/service/api/api?${params}`;
 
     try {
       const response = await fetch(url, {

@@ -7,11 +7,11 @@ const helpApi = () => {
   useEffect(() => {
     const fetchData = async () => {
       const params = new URLSearchParams({
-        ApiKey: process.env.REACT_APP_API_KEY,
-        MethodName: process.env.REACT_APP_METHOD_NAME_GG_LIST
+        ApiKey: "011ba11bdcad4fa396660c2ec447ef14",
+        MethodName: "OSGetGoodList"
       });
 
-      const url = `${process.env.REACT_APP_API_URL}?${params}`;
+      const url = `https://sycret.ru/service/api/api?${params}`;
       
       try {
         const response = await fetch(url, {
