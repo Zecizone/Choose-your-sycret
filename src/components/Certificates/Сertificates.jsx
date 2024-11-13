@@ -1,47 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import './Certificates.css';
 import { useNavigate } from 'react-router-dom'; 
 import Buy from '../Buy/Buy';
+import helpApi from '../../lib/helpApi';
 
 const Certificates = () => {
-  const [data, setData] = useState([]);
-  const [error, setError] = useState(null); 
+  const { data, error } = helpApi(); 
   const navigate = useNavigate(); 
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const params = new URLSearchParams({
-        ApiKey: "011ba11bdcad4fa396660c2ec447ef14",
-        MethodName: "OSGetGoodList"
-      });
-    
-      const url = `https://sycret.ru/service/api/api?${params}`;
-    
-      try {
-        const response = await fetch(url, {
-          method: 'GET',
-          headers: { 
-            'Content-Type': 'application/json'
-          }
-        });
-      
-        if (!response.ok) {
-          throw new Error(`Ошибка сети: ${response.statusText}`);
-        }
-      
-        const responseData = await response.json();
-        if (responseData.data) {
-          setData(responseData.data);
-        } else {
-          throw new Error('Нет данных для отображения');
-        }
-      } catch (error) {
-        console.error('Ошибка:', error);
-        setError(error);
-      }
-    };
-    fetchData();
-  }, []);
 
   const handleBuyClick = (certificateId, productName) => {
     navigate(`/checkout/${certificateId}`, { state: { productName } });

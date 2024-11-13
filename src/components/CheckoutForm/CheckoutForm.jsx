@@ -1,61 +1,27 @@
-import React, { useState } from 'react';
-import { useNavigate, useLocation, useParams } from 'react-router-dom';
+import React from 'react';
+import { useLocation, useParams } from 'react-router-dom';
 import './CheckoutForm.css';
+import useCheckoutForm from '../hooks/useCheckoutForm';
 
 const CheckoutForm = () => {
   const location = useLocation();
   const { productName } = location.state || {};
   const { certificateId } = useParams();
-  const [name, setName] = useState('');
-  const [phone, setPhone] = useState('');
-  const [email, setEmail] = useState('');
-  const navigate = useNavigate();
-
-  const handleBack = () => {
-    navigate('/');
-  };
-
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-
-    if (!name || !phone || !email) {
-      alert('Пожалуйста, заполните все поля');
-      return;
-    }
-
-    const params = new URLSearchParams({
-      ApiKey: "011ba11bdcad4fa396660c2ec447ef14",
-      MethodName: "OSSale",
-      Name: name,
-      Phone: phone,
-      Email: email,
-      CertificateData: JSON.stringify({ certificateId })
-    });
-
-    const url = `https://sycret.ru/service/api/api?${params}`;
-
-    try {
-      const response = await fetch(url, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      });
-
-      if (!response.ok) {
-        throw new Error('Сетевая ошибка');
-      }
-
-      navigate('/payment');
-    } catch (error) {
-      console.error('Ошибка:', error);
-      alert('Ошибка при обработке платежа. Пожалуйста, попробуйте снова.'); 
-    }
-  };
+  
+  const {
+    name,
+    setName,
+    phone,
+    setPhone,
+    email,
+    setEmail,
+    handleBack,
+    handleSubmit,
+  } = useCheckoutForm(certificateId);
 
   return (
-     <div className="checkout-form_container">
-       <div className="checkout-form">
+    <div className="checkout-form_container">
+      <div className="checkout-form">
         <h1 className="checkout-form__title">
           {productName ? (
             `${productName}`
@@ -100,7 +66,7 @@ const CheckoutForm = () => {
           <button className="checkout-form__button checkout-form__button--submit" type="submit">Оплатить</button> 
         </form>
       </div>
-      </div>
+    </div>
   );
 }
 
